@@ -26,7 +26,7 @@ import client.MapleClient;
 import client.inventory.Item;
 import client.inventory.ItemFactory;
 import client.inventory.MapleInventoryType;
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 import constants.ItemConstants;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

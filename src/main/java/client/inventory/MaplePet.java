@@ -22,7 +22,7 @@
 package client.inventory;
 
 import client.inventory.Item;
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 import java.awt.Point;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
