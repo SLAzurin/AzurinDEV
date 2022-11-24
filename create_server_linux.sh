@@ -1,3 +1,3 @@
 #!/bin/sh
-export CLASSPATH=".:dist/*"
+export CLASSPATH=".:target/classes*"
 java -Xmx100m net.server.CreateINI

@@ -12,7 +12,7 @@
     </properties>
 
     <build>
-        <defaultGoal>compile package</defaultGoal>
+        <defaultGoal>clean compile package</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -26,13 +26,31 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>io.github.slazurin.azuridev.net.server.Server</mainClass>
+                            <classpathPrefix>libs/</classpathPrefix>
+                            <mainClass>net.server.Server</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -49,7 +67,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>io.github.slazurin.azuridev.net.server.Server</mainClass>
+                    <mainClass>net.server.Server</mainClass>
                 </configuration>
             </plugin>
         </plugins>

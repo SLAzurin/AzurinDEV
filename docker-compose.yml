@@ -17,3 +17,12 @@ services:
       - ./ms_db/:/var/lib/mysql
     env_file:
       - .env
+  ms_web:
+    build:
+      context: .
+      dockerfile: php.Dockerfile
+    restart: unless-stopped
+    working_dir: /src
+    volumes:
+      - ../FlareCMS:/var/www/html/
+    

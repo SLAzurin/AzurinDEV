@@ -83,7 +83,7 @@ public class DatabaseConnection {
 
     private static Connection connectToDB() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");    // touch the MySQL driver
+            Class.forName("com.mysql.cj.jdbc.Driver");    // touch the MySQL driver
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

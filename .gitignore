@@ -4,3 +4,5 @@ ms_db
 dist
 target
 wz
+*.properties
+logs
