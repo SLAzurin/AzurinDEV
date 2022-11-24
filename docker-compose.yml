@@ -1,0 +1,19 @@
+version: '2.4'
+
+services:
+  ms:
+    image: maven:3-eclipse-temurin-8
+    command: sh -c "while true; do sleep 1; done"
+    restart: unless-stopped
+    working_dir: /src
+    volumes:
+      - ./:/src/
+  ms_db:
+    image: mysql:8
+    restart: unless-stopped
+    working_dir: /src
+    volumes:
+      - ./:/src/
+      - ./ms_db/:/var/lib/mysql
+    env_file:
+      - .env
